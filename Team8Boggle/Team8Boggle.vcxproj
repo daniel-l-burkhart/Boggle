@@ -71,8 +71,8 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="..\..\..\CS 3202 - Team8Boggle%27\cs-3202-team8boggle\Team8Boggle\Die.cpp" />
-    <ClCompile Include="..\..\..\CS 3202 - Team8Boggle%27\cs-3202-team8boggle\Team8Boggle\GameBoard.cpp" />
+    <ClCompile Include="Die.cpp" />
+    <ClCompile Include="GameBoard.cpp" />
     <ClCompile Include="UserInterface.cpp" />
     <ClCompile Include="WinFormsCLI.cpp" />
   </ItemGroup>
@@ -84,8 +84,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="..\..\..\CS 3202 - Team8Boggle%27\cs-3202-team8boggle\Team8Boggle\Die.h" />
-    <ClInclude Include="..\..\..\CS 3202 - Team8Boggle%27\cs-3202-team8boggle\Team8Boggle\GameBoard.h" />
+    <ClInclude Include="Die.h" />
+    <ClInclude Include="GameBoard.h" />
     <ClInclude Include="UserInterface.h">
       <FileType>CppForm</FileType>
     </ClInclude>
