@@ -1,6 +1,6 @@
 #include "UserInterface.h" //the header name for your form
 
-using namespace Team8Boggle; //the project name in your header file
+//using namespace Team8Boggle; //the project name in your header file
 
 [STAThreadAttribute]
 int main(array<System::String ^> ^args)

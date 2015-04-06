@@ -21,10 +21,27 @@
     <ClCompile Include="UserInterface.cpp">
       <Filter>Header Files</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\..\CS 3202 - Team8Boggle%27\cs-3202-team8boggle\Team8Boggle\GameBoard.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\CS 3202 - Team8Boggle%27\cs-3202-team8boggle\Team8Boggle\Die.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="UserInterface.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\..\CS 3202 - Team8Boggle%27\cs-3202-team8boggle\Team8Boggle\GameBoard.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\CS 3202 - Team8Boggle%27\cs-3202-team8boggle\Team8Boggle\Die.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="UserInterface.resx">
+      <Filter>Resource Files</Filter>
+    </EmbeddedResource>
   </ItemGroup>
 </Project>

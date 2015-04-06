@@ -1,7 +1,5 @@
 #pragma once
-
-namespace Team8Boggle {
-
+#include "GameBoard.h";
 	using namespace System;
 	using namespace System::ComponentModel;
 	using namespace System::Collections;
@@ -22,6 +20,7 @@ namespace Team8Boggle {
 			//TODO: Add the constructor code here
 			//
 		}
+		
 
 	protected:
 		/// <summary>
@@ -136,6 +135,7 @@ namespace Team8Boggle {
 			this->gameBoardGroupBox->Size = System::Drawing::Size(338, 203);
 			this->gameBoardGroupBox->TabIndex = 0;
 			this->gameBoardGroupBox->TabStop = false;
+			this->gameBoardGroupBox->Enter += gcnew System::EventHandler(this, &UserInterface::gameBoardGroupBox_Enter);
 			// 
 			// boardPiece16
 			// 
@@ -375,12 +375,12 @@ namespace Team8Boggle {
 			// headerLabel
 			// 
 			this->headerLabel->AutoSize = true;
-			this->headerLabel->Font = (gcnew System::Drawing::Font(L"Bookman Old Style", 21.75F, static_cast<System::Drawing::FontStyle>((System::Drawing::FontStyle::Bold | System::Drawing::FontStyle::Italic)),
+			this->headerLabel->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 21.75F, static_cast<System::Drawing::FontStyle>((System::Drawing::FontStyle::Bold | System::Drawing::FontStyle::Italic)),
 				System::Drawing::GraphicsUnit::Point, static_cast<System::Byte>(0)));
 			this->headerLabel->ForeColor = System::Drawing::SystemColors::ControlText;
 			this->headerLabel->Location = System::Drawing::Point(12, 9);
 			this->headerLabel->Name = L"headerLabel";
-			this->headerLabel->Size = System::Drawing::Size(240, 34);
+			this->headerLabel->Size = System::Drawing::Size(225, 33);
 			this->headerLabel->TabIndex = 7;
 			this->headerLabel->Text = L"Team 8 Boggle";
 			// 
@@ -392,6 +392,7 @@ namespace Team8Boggle {
 			this->startButton->TabIndex = 8;
 			this->startButton->Text = L"Start";
 			this->startButton->UseVisualStyleBackColor = true;
+			this->startButton->Click += gcnew System::EventHandler(this, &UserInterface::startButton_Click);
 			// 
 			// resetButton
 			// 
@@ -445,5 +446,25 @@ namespace Team8Boggle {
 			this->PerformLayout();
 
 		}
-};
+private: System::Void startButton_Click(System::Object^  sender, System::EventArgs^  e) {
+	GameBoard^ theBoard = gcnew GameBoard();
+	this->boardPiece1->Text = theBoard->getPositionValue(0);
+	this->boardPiece2->Text = theBoard->getPositionValue(1);
+	this->boardPiece3->Text = theBoard->getPositionValue(2);
+	this->boardPiece4->Text = theBoard->getPositionValue(3);
+	this->boardPiece5->Text = theBoard->getPositionValue(4);
+	this->boardPiece6->Text = theBoard->getPositionValue(5);
+	this->boardPiece7->Text = theBoard->getPositionValue(6);
+	this->boardPiece8->Text = theBoard->getPositionValue(7);
+	this->boardPiece9->Text = theBoard->getPositionValue(8);
+	this->boardPiece10->Text = theBoard->getPositionValue(9);
+	this->boardPiece11->Text = theBoard->getPositionValue(10);
+	this->boardPiece12->Text = theBoard->getPositionValue(11);
+	this->boardPiece13->Text = theBoard->getPositionValue(12);
+	this->boardPiece14->Text = theBoard->getPositionValue(13);
+	this->boardPiece15->Text = theBoard->getPositionValue(14);
+	this->boardPiece16->Text = theBoard->getPositionValue(15);
 }
+private: System::Void gameBoardGroupBox_Enter(System::Object^  sender, System::EventArgs^  e) {
+}
+};
