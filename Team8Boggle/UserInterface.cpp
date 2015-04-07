@@ -8,7 +8,17 @@ using namespace Team8Boggle;
 UserInterface::UserInterface(void){
 
 	this->InitializeComponent();
+	this->resourceManager = gcnew Resources::ResourceManager(L"Team8Boggle.UserInterfaceStrings", this->GetType()->Assembly);
 
+	this->instructionLabel->Text = this->resourceManager->GetString("instructionText");
+	this->currentWordLabel->Text = this->resourceManager->GetString("currentWordText");
+	this->btnSubmit->Text = this->resourceManager->GetString("btnSubmitText");
+	this->wordBankLabel->Text = this->resourceManager->GetString("wordBankText");
+	this->headerLabel->Text = this->resourceManager->GetString("headerText");
+	this->startButton->Text = this->resourceManager->GetString("startButtonText");
+	this->resetButton->Text = this->resourceManager->GetString("resetButtonText");
+	this->quitButton->Text = this->resourceManager->GetString("quitButtonText");
+	this->rotateButton->Text = this->resourceManager->GetString("rotateButtonText");
 
 }
 

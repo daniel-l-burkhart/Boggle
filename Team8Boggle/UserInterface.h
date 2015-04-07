@@ -9,6 +9,7 @@ namespace Team8Boggle {
 	using namespace System::Windows::Forms;
 	using namespace System::Data;
 	using namespace System::Drawing;
+	using namespace System::Resources;
 
 	/// <summary>
 	/// Summary for UserInterface
@@ -38,7 +39,7 @@ namespace Team8Boggle {
 	private: System::Windows::Forms::Label^  boardPiece2;
 	private: System::Windows::Forms::Label^  boardPiece1;
 	private: System::Windows::Forms::TextBox^  textBox1;
-	private: System::Windows::Forms::Label^  label1;
+	private: System::Windows::Forms::Label^  instructionLabel;
 	private: System::Windows::Forms::Label^  currentWordLabel;
 	private: System::Windows::Forms::Button^  btnSubmit;
 	private: System::Windows::Forms::TextBox^  textBox2;
@@ -52,6 +53,7 @@ namespace Team8Boggle {
 
 
 	private: System::ComponentModel::IContainer^  components;
+	private: ResourceManager^ resourceManager;
 
 
 

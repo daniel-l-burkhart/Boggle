@@ -25,7 +25,7 @@ void UserInterface::InitializeComponent(void){
 	this->boardPiece2 = (gcnew System::Windows::Forms::Label());
 	this->boardPiece1 = (gcnew System::Windows::Forms::Label());
 	this->textBox1 = (gcnew System::Windows::Forms::TextBox());
-	this->label1 = (gcnew System::Windows::Forms::Label());
+	this->instructionLabel = (gcnew System::Windows::Forms::Label());
 	this->currentWordLabel = (gcnew System::Windows::Forms::Label());
 	this->btnSubmit = (gcnew System::Windows::Forms::Button());
 	this->textBox2 = (gcnew System::Windows::Forms::TextBox());
@@ -250,16 +250,16 @@ void UserInterface::InitializeComponent(void){
 	this->textBox1->Size = System::Drawing::Size(158, 22);
 	this->textBox1->TabIndex = 1;
 	// 
-	// label1
+	// instructionLabel
 	// 
-	this->label1->AutoSize = true;
-	this->label1->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 12, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+	this->instructionLabel->AutoSize = true;
+	this->instructionLabel->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 12, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 		static_cast<System::Byte>(0)));
-	this->label1->Location = System::Drawing::Point(12, 60);
-	this->label1->Name = L"label1";
-	this->label1->Size = System::Drawing::Size(215, 20);
-	this->label1->TabIndex = 2;
-	this->label1->Text = L"Click on die to form words";
+	this->instructionLabel->Location = System::Drawing::Point(12, 60);
+	this->instructionLabel->Name = L"instructionLabel";
+	this->instructionLabel->Size = System::Drawing::Size(215, 20);
+	this->instructionLabel->TabIndex = 2;
+	this->instructionLabel->Text = L"Click on die to form words";
 	// 
 	// currentWordLabel
 	// 
@@ -307,9 +307,8 @@ void UserInterface::InitializeComponent(void){
 	this->headerLabel->ForeColor = System::Drawing::SystemColors::ControlText;
 	this->headerLabel->Location = System::Drawing::Point(12, 9);
 	this->headerLabel->Name = L"headerLabel";
-	this->headerLabel->Size = System::Drawing::Size(225, 33);
+	this->headerLabel->Size = System::Drawing::Size(0, 33);
 	this->headerLabel->TabIndex = 7;
-	this->headerLabel->Text = L"Team 8 Boggle";
 	// 
 	// startButton
 	// 
@@ -366,7 +365,7 @@ void UserInterface::InitializeComponent(void){
 	this->Controls->Add(this->textBox2);
 	this->Controls->Add(this->btnSubmit);
 	this->Controls->Add(this->currentWordLabel);
-	this->Controls->Add(this->label1);
+	this->Controls->Add(this->instructionLabel);
 	this->Controls->Add(this->textBox1);
 	this->Controls->Add(this->gameBoardGroupBox);
 	this->Name = L"UserInterface";
