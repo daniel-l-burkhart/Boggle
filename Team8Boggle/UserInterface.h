@@ -53,14 +53,17 @@ namespace Team8Boggle {
 
 
 	private: System::ComponentModel::IContainer^  components;
+	private: System::Windows::Forms::Label^  timeLeft;
+	private: System::Windows::Forms::Label^  timerLabel;
 	private: ResourceManager^ resourceManager;
+
+	private: System::Timers::Timer^ currentGameTimer;
+	private: System::Windows::Forms::Timer^  completeGameTimer;
 
 
 
 	private:
-		/// <summary>
-		/// Required designer variable.
-		/// </summary>
+		DateTime time;
 
 
 #pragma region Windows Form Designer generated code
@@ -74,7 +77,8 @@ namespace Team8Boggle {
 
 	private: System::Void startButton_Click(System::Object^  sender, System::EventArgs^  e);
 
-	private: System::Void gameBoardGroupBox_Enter(System::Object^  sender, System::EventArgs^  e) {
-	}
+	private: System::Void gameBoardGroupBox_Enter(System::Object^  sender, System::EventArgs^  e);
+	private: System::Void gameTimer_Tick(System::Object^  sender, System::EventArgs^  e);
+	private: System::Void calculateTimer();
 	};
 }

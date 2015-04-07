@@ -141,6 +141,9 @@
   <data name="startButtonText" xml:space="preserve">
     <value>Start</value>
   </data>
+  <data name="timeLeftText" xml:space="preserve">
+    <value>Time Left:</value>
+  </data>
   <data name="wordBankText" xml:space="preserve">
     <value>Your current words.</value>
   </data>

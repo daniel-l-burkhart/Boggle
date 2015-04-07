@@ -36,6 +36,9 @@ void UserInterface::InitializeComponent(void){
 	this->quitButton = (gcnew System::Windows::Forms::Button());
 	this->rotateButton = (gcnew System::Windows::Forms::Button());
 	this->gameTimer = (gcnew System::Windows::Forms::Timer(this->components));
+	this->timeLeft = (gcnew System::Windows::Forms::Label());
+	this->timerLabel = (gcnew System::Windows::Forms::Label());
+	this->completeGameTimer = (gcnew System::Windows::Forms::Timer(this->components));
 	this->gameBoardGroupBox->SuspendLayout();
 	this->SuspendLayout();
 	// 
@@ -349,13 +352,38 @@ void UserInterface::InitializeComponent(void){
 	// 
 	// gameTimer
 	// 
-	this->gameTimer->Interval = 180000;
+	this->gameTimer->Enabled = true;
+	this->gameTimer->Interval = 1000;
+	this->gameTimer->Tick += gcnew System::EventHandler(this, &UserInterface::gameTimer_Tick);
+	// 
+	// timeLeft
+	// 
+	this->timeLeft->AutoSize = true;
+	this->timeLeft->Location = System::Drawing::Point(379, 389);
+	this->timeLeft->Name = L"timeLeft";
+	this->timeLeft->Size = System::Drawing::Size(0, 13);
+	this->timeLeft->TabIndex = 12;
+	// 
+	// timerLabel
+	// 
+	this->timerLabel->AutoSize = true;
+	this->timerLabel->Location = System::Drawing::Point(442, 389);
+	this->timerLabel->Name = L"timerLabel";
+	this->timerLabel->Size = System::Drawing::Size(28, 13);
+	this->timerLabel->TabIndex = 13;
+	this->timerLabel->Text = L"0:00";
+	// 
+	// completeGameTimer
+	// 
+	this->completeGameTimer->Interval = 180000;
 	// 
 	// UserInterface
 	// 
 	this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
 	this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
 	this->ClientSize = System::Drawing::Size(579, 440);
+	this->Controls->Add(this->timerLabel);
+	this->Controls->Add(this->timeLeft);
 	this->Controls->Add(this->rotateButton);
 	this->Controls->Add(this->quitButton);
 	this->Controls->Add(this->resetButton);
