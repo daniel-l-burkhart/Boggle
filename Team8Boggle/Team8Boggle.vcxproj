@@ -74,6 +74,7 @@
     <ClCompile Include="Die.cpp" />
     <ClCompile Include="GameBoard.cpp" />
     <ClCompile Include="UserInterface.cpp" />
+    <ClCompile Include="UserInterfaceDesigner.cpp" />
     <ClCompile Include="WinFormsCLI.cpp" />
   </ItemGroup>
   <ItemGroup>
