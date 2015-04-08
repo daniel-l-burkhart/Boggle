@@ -1,6 +1,7 @@
 #include "Die.h"
 
 Die::Die(int dieNumber) {
+	this->selected = false;
 	array<String^>^ DIE0 = gcnew array<String^>(6){ "R", "I", "F", "O", "B", "X" };
 	array<String^>^ DIE1 = gcnew array<String^>(6){ "I", "F", "E", "H", "E", "Y" };
 	array<String^>^ DIE2 = gcnew array<String^>(6){ "D", "E", "N", "O", "W", "S" };
@@ -59,6 +60,14 @@ Die::Die(int dieNumber) {
 
 String^ Die::getValue() {
 	return this->dieValue;
+}
+
+bool Die::isSelected(){
+	return this->selected;
+}
+
+void Die::toggleSelected() {
+	this->selected = !this->selected;
 }
 
 Die::~Die() {

@@ -11,8 +11,10 @@ ref class Die
 		Die(int dieNumber);
 		String^ getValue();
 		virtual ~Die();
-
+		bool isSelected();
+		void toggleSelected();
 	private:
+		bool selected;
 		String^ dieValue;
 		array<String^>^ DIE0;
 		array<String^>^ DIE1;
