@@ -66,8 +66,12 @@ bool Die::isSelected(){
 	return this->selected;
 }
 
-void Die::toggleSelected() {
-	this->selected = !this->selected;
+void Die::select_die() {
+	this->selected = true;
+}
+
+void Die::deselect_die() {
+	this->selected = false;
 }
 
 Die::~Die() {

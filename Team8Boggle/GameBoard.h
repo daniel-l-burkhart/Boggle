@@ -12,7 +12,8 @@
 		bool getDieSelectionStatus(int position);
 	private:
 		array<Die^>^ DIES = gcnew array<Die^>(16);
-		Die^ lastSelectedDie;
+		int lastSelectedDiePosition;
+		bool validSelection(int position);
 	};
 
 

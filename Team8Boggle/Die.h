@@ -12,7 +12,8 @@ ref class Die
 		String^ getValue();
 		virtual ~Die();
 		bool isSelected();
-		void toggleSelected();
+		void select_die();
+		void deselect_die();
 	private:
 		bool selected;
 		String^ dieValue;
