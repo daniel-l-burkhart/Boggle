@@ -77,6 +77,7 @@ void UserInterface::InitializeComponent(void){
 	this->boardPiece16->Name = L"boardPiece16";
 	this->boardPiece16->Size = System::Drawing::Size(2, 27);
 	this->boardPiece16->TabIndex = 15;
+	this->boardPiece16->Click += gcnew System::EventHandler(this, &UserInterface::boardPiece_Click);
 	// 
 	// boardPiece15
 	// 
@@ -88,6 +89,7 @@ void UserInterface::InitializeComponent(void){
 	this->boardPiece15->Name = L"boardPiece15";
 	this->boardPiece15->Size = System::Drawing::Size(2, 27);
 	this->boardPiece15->TabIndex = 14;
+	this->boardPiece15->Click += gcnew System::EventHandler(this, &UserInterface::boardPiece_Click);
 	// 
 	// boardPiece14
 	// 
@@ -99,6 +101,7 @@ void UserInterface::InitializeComponent(void){
 	this->boardPiece14->Name = L"boardPiece14";
 	this->boardPiece14->Size = System::Drawing::Size(2, 27);
 	this->boardPiece14->TabIndex = 13;
+	this->boardPiece14->Click += gcnew System::EventHandler(this, &UserInterface::boardPiece_Click);
 	// 
 	// boardPiece13
 	// 
@@ -110,6 +113,7 @@ void UserInterface::InitializeComponent(void){
 	this->boardPiece13->Name = L"boardPiece13";
 	this->boardPiece13->Size = System::Drawing::Size(2, 27);
 	this->boardPiece13->TabIndex = 12;
+	this->boardPiece13->Click += gcnew System::EventHandler(this, &UserInterface::boardPiece_Click);
 	// 
 	// boardPiece12
 	// 
@@ -121,6 +125,7 @@ void UserInterface::InitializeComponent(void){
 	this->boardPiece12->Name = L"boardPiece12";
 	this->boardPiece12->Size = System::Drawing::Size(2, 27);
 	this->boardPiece12->TabIndex = 11;
+	this->boardPiece12->Click += gcnew System::EventHandler(this, &UserInterface::boardPiece_Click);
 	// 
 	// boardPiece11
 	// 
@@ -132,6 +137,7 @@ void UserInterface::InitializeComponent(void){
 	this->boardPiece11->Name = L"boardPiece11";
 	this->boardPiece11->Size = System::Drawing::Size(2, 27);
 	this->boardPiece11->TabIndex = 10;
+	this->boardPiece11->Click += gcnew System::EventHandler(this, &UserInterface::boardPiece_Click);
 	// 
 	// boardPiece10
 	// 
@@ -143,6 +149,7 @@ void UserInterface::InitializeComponent(void){
 	this->boardPiece10->Name = L"boardPiece10";
 	this->boardPiece10->Size = System::Drawing::Size(2, 27);
 	this->boardPiece10->TabIndex = 9;
+	this->boardPiece10->Click += gcnew System::EventHandler(this, &UserInterface::boardPiece_Click);
 	// 
 	// boardPiece9
 	// 
@@ -154,6 +161,7 @@ void UserInterface::InitializeComponent(void){
 	this->boardPiece9->Name = L"boardPiece9";
 	this->boardPiece9->Size = System::Drawing::Size(2, 27);
 	this->boardPiece9->TabIndex = 8;
+	this->boardPiece9->Click += gcnew System::EventHandler(this, &UserInterface::boardPiece_Click);
 	// 
 	// boardPiece8
 	// 
@@ -165,6 +173,7 @@ void UserInterface::InitializeComponent(void){
 	this->boardPiece8->Name = L"boardPiece8";
 	this->boardPiece8->Size = System::Drawing::Size(2, 27);
 	this->boardPiece8->TabIndex = 7;
+	this->boardPiece8->Click += gcnew System::EventHandler(this, &UserInterface::boardPiece_Click);
 	// 
 	// boardPiece7
 	// 
@@ -176,6 +185,7 @@ void UserInterface::InitializeComponent(void){
 	this->boardPiece7->Name = L"boardPiece7";
 	this->boardPiece7->Size = System::Drawing::Size(2, 27);
 	this->boardPiece7->TabIndex = 6;
+	this->boardPiece7->Click += gcnew System::EventHandler(this, &UserInterface::boardPiece_Click);
 	// 
 	// boardPiece6
 	// 
@@ -187,6 +197,7 @@ void UserInterface::InitializeComponent(void){
 	this->boardPiece6->Name = L"boardPiece6";
 	this->boardPiece6->Size = System::Drawing::Size(2, 27);
 	this->boardPiece6->TabIndex = 5;
+	this->boardPiece6->Click += gcnew System::EventHandler(this, &UserInterface::boardPiece_Click);
 	// 
 	// boardPiece5
 	// 
@@ -198,6 +209,7 @@ void UserInterface::InitializeComponent(void){
 	this->boardPiece5->Name = L"boardPiece5";
 	this->boardPiece5->Size = System::Drawing::Size(2, 27);
 	this->boardPiece5->TabIndex = 4;
+	this->boardPiece5->Click += gcnew System::EventHandler(this, &UserInterface::boardPiece_Click);
 	// 
 	// boardPiece4
 	// 
@@ -209,6 +221,7 @@ void UserInterface::InitializeComponent(void){
 	this->boardPiece4->Name = L"boardPiece4";
 	this->boardPiece4->Size = System::Drawing::Size(2, 27);
 	this->boardPiece4->TabIndex = 3;
+	this->boardPiece4->Click += gcnew System::EventHandler(this, &UserInterface::boardPiece_Click);
 	// 
 	// boardPiece3
 	// 
@@ -220,6 +233,7 @@ void UserInterface::InitializeComponent(void){
 	this->boardPiece3->Name = L"boardPiece3";
 	this->boardPiece3->Size = System::Drawing::Size(2, 27);
 	this->boardPiece3->TabIndex = 2;
+	this->boardPiece3->Click += gcnew System::EventHandler(this, &UserInterface::boardPiece_Click);
 	// 
 	// boardPiece2
 	// 
@@ -231,6 +245,7 @@ void UserInterface::InitializeComponent(void){
 	this->boardPiece2->Name = L"boardPiece2";
 	this->boardPiece2->Size = System::Drawing::Size(2, 27);
 	this->boardPiece2->TabIndex = 1;
+	this->boardPiece2->Click += gcnew System::EventHandler(this, &UserInterface::boardPiece_Click);
 	// 
 	// boardPiece1
 	// 
@@ -242,6 +257,7 @@ void UserInterface::InitializeComponent(void){
 	this->boardPiece1->Name = L"boardPiece1";
 	this->boardPiece1->Size = System::Drawing::Size(2, 27);
 	this->boardPiece1->TabIndex = 0;
+	this->boardPiece1->Click += gcnew System::EventHandler(this, &UserInterface::boardPiece_Click);
 	// 
 	// textBox1
 	// 
@@ -349,6 +365,7 @@ void UserInterface::InitializeComponent(void){
 	this->rotateButton->TabIndex = 11;
 	this->rotateButton->Text = L"Rotate Board";
 	this->rotateButton->UseVisualStyleBackColor = true;
+	this->rotateButton->Click += gcnew System::EventHandler(this, &UserInterface::rotateButton_Click);
 	// 
 	// gameTimer
 	// 

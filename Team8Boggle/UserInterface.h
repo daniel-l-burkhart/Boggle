@@ -20,7 +20,10 @@ namespace Team8Boggle {
 	public:
 		UserInterface(void);
 
-
+	private: GameBoard^ theBoard;
+	private: System::Void PopulateGameBoard();
+	private: array<System::Windows::Forms::Label^>^ boardPieces = gcnew array<System::Windows::Forms::Label^>(16);
+	private: System::Void rotateButton_Click(System::Object^  sender, System::EventArgs^  e);
 	private: System::Windows::Forms::GroupBox^  gameBoardGroupBox;
 	private: System::Windows::Forms::Label^  boardPiece16;
 	private: System::Windows::Forms::Label^  boardPiece15;
@@ -76,9 +79,11 @@ namespace Team8Boggle {
 		void InitializeComponent(void);
 
 	private: System::Void startButton_Click(System::Object^  sender, System::EventArgs^  e);
+	private: System::Void boardPiece_Click(System::Object^  sender, System::EventArgs^  e);
 
 	private: System::Void gameBoardGroupBox_Enter(System::Object^  sender, System::EventArgs^  e);
 	private: System::Void gameTimer_Tick(System::Object^  sender, System::EventArgs^  e);
 	private: System::Void calculateTimer();
+
 	};
 }
