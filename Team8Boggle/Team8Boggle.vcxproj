@@ -74,6 +74,7 @@
     <ClCompile Include="Die.cpp" />
     <ClCompile Include="GameBoard.cpp" />
     <ClCompile Include="UserInterface.cpp" />
+    <ClCompile Include="UserInterfaceDesigner.cpp" />
     <ClCompile Include="WinFormsCLI.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -94,6 +95,7 @@
     <EmbeddedResource Include="UserInterface.resx">
       <DependentUpon>UserInterface.h</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="UserInterfaceStrings.resx" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

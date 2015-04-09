@@ -1,7 +1,12 @@
 #include "UserInterface.h" //the header name for your form
 
-//using namespace Team8Boggle; //the project name in your header file
+using namespace Team8Boggle;
 
+/// <summary>
+/// Mains the specified arguments.
+/// </summary>
+/// <param name="args">The arguments.</param>
+/// <returns></returns>
 [STAThreadAttribute]
 int main(array<System::String ^> ^args)
 {

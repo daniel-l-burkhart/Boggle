@@ -117,10 +117,34 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <metadata name="gameTimer.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>17, 17</value>
-  </metadata>
-  <metadata name="completeGameTimer.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>130, 17</value>
-  </metadata>
+  <data name="btnSubmitText" xml:space="preserve">
+    <value>Submit</value>
+  </data>
+  <data name="currentWordText" xml:space="preserve">
+    <value>Your current word.</value>
+  </data>
+  <data name="headerText" xml:space="preserve">
+    <value>Team 8 Boggle</value>
+  </data>
+  <data name="instructionText" xml:space="preserve">
+    <value>Click on a die to form words.</value>
+  </data>
+  <data name="quitButtonText" xml:space="preserve">
+    <value>Quit</value>
+  </data>
+  <data name="resetButtonText" xml:space="preserve">
+    <value>Reset</value>
+  </data>
+  <data name="rotateButtonText" xml:space="preserve">
+    <value>Rotate Board</value>
+  </data>
+  <data name="startButtonText" xml:space="preserve">
+    <value>Start</value>
+  </data>
+  <data name="timeLeftText" xml:space="preserve">
+    <value>Time Left:</value>
+  </data>
+  <data name="wordBankText" xml:space="preserve">
+    <value>Your current words.</value>
+  </data>
 </root>
