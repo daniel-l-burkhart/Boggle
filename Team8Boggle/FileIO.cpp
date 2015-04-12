@@ -31,3 +31,7 @@ FileIO::FileIO()
 		}
 	}
 }
+
+Trie^ FileIO::getTrie(){
+	return this->trie;
+}

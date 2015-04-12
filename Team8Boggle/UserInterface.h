@@ -1,6 +1,7 @@
 #pragma once
 #include "GameBoard.h";
 #include "FileIO.h"
+#include "Trie.h"
 
 namespace Team8Boggle {
 
@@ -19,9 +20,18 @@ namespace Team8Boggle {
 	{
 
 	private: FileIO^ file;
-	
+	private: System::Windows::Forms::TextBox^  highScoreTextBox;
+
+	private: Trie^ trie;
+
 	public:
 		UserInterface(void);
+
+	private: System::Windows::Forms::DataGridView^  wordBankDGV;
+
+	public:
+
+	public:
 
 	private: GameBoard^ theBoard;
 	private: System::Void PopulateGameBoard();
@@ -48,7 +58,7 @@ namespace Team8Boggle {
 	private: System::Windows::Forms::Label^  instructionLabel;
 	private: System::Windows::Forms::Label^  currentWordLabel;
 	private: System::Windows::Forms::Button^  btnSubmit;
-	private: System::Windows::Forms::TextBox^  textBox2;
+
 	private: System::Windows::Forms::Label^  wordBankLabel;
 	private: System::Windows::Forms::Label^  headerLabel;
 	private: System::Windows::Forms::Button^  startButton;
@@ -89,5 +99,8 @@ namespace Team8Boggle {
 	private: System::Void calculateTimer();
 
 	private: System::Void completeGameTimer_Tick(System::Object^  sender, System::EventArgs^  e);
+
+	private: System::Void CalculateScore();
+	private: int calculatePointValue(String^ str);
 	};
 }

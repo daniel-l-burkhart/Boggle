@@ -1,13 +1,15 @@
 #include "UserInterface.h"
+#include "Trie.h"
 
 using namespace Team8Boggle;
 
 /// <summary>
-/// Initializes a new instance of the <see cref="UserInterface"/> class.
+/// Initializes a new instance of the <see cref="UserInterface" /> class.
 /// </summary>
 UserInterface::UserInterface(void){
-	
+
 	this->file = gcnew FileIO();
+	this->trie = this->file->getTrie();
 
 	this->InitializeComponent();
 	this->resourceManager = gcnew Resources::ResourceManager(L"Team8Boggle.UserInterfaceStrings", this->GetType()->Assembly);
@@ -43,7 +45,7 @@ UserInterface::UserInterface(void){
 }
 
 /// <summary>
-/// Finalizes an instance of the <see cref="UserInterface"/> class.
+/// Finalizes an instance of the <see cref="UserInterface" /> class.
 /// </summary>
 UserInterface::~UserInterface(){
 	if (components){
@@ -51,6 +53,9 @@ UserInterface::~UserInterface(){
 	}
 }
 
+/// <summary>
+/// Populates the game board.
+/// </summary>
 void UserInterface::PopulateGameBoard() {
 
 	this->boardPiece1->Text = theBoard->getPositionValue(0);
@@ -102,9 +107,19 @@ System::Void UserInterface::startButton_Click(System::Object^  sender, System::E
 	this->PopulateGameBoard();
 }
 
+/// <summary>
+/// Games the board group box_ enter.
+/// </summary>
+/// <param name="sender">The sender.</param>
+/// <param name="e">The e.</param>
 System::Void UserInterface::gameBoardGroupBox_Enter(System::Object^  sender, System::EventArgs^  e) {
 }
 
+/// <summary>
+/// Boards the piece_ click.
+/// </summary>
+/// <param name="sender">The sender.</param>
+/// <param name="e">The e.</param>
 System::Void UserInterface::boardPiece_Click(System::Object^  sender, System::EventArgs^  e) {
 	System::Windows::Forms::Label^ boardPiece = safe_cast<System::Windows::Forms::Label^>(sender);
 	if (boardPiece->Equals(boardPiece1)) {
@@ -158,12 +173,22 @@ System::Void UserInterface::boardPiece_Click(System::Object^  sender, System::Ev
 	this->PopulateGameBoard();
 }
 
+/// <summary>
+/// Rotates the button_ click.
+/// </summary>
+/// <param name="sender">The sender.</param>
+/// <param name="e">The e.</param>
 System::Void UserInterface::rotateButton_Click(System::Object^  sender, System::EventArgs^  e) {
 	this->theBoard->RotateGameBoard();
 	this->PopulateGameBoard();
 }
 
 
+/// <summary>
+/// Games the timer_ tick.
+/// </summary>
+/// <param name="sender">The sender.</param>
+/// <param name="e">The e.</param>
 System::Void UserInterface::gameTimer_Tick(System::Object^  sender, System::EventArgs^  e) {
 
 
@@ -181,6 +206,9 @@ System::Void UserInterface::gameTimer_Tick(System::Object^  sender, System::Even
 	this->timerLabel->Text = minutes.ToString() + ":" + seconds.ToString();
 }
 
+/// <summary>
+/// Calculates the timer.
+/// </summary>
 System::Void UserInterface::calculateTimer() {
 	this->gameTimer->Start();
 
@@ -188,7 +216,50 @@ System::Void UserInterface::calculateTimer() {
 	this->theBoard = gcnew GameBoard();
 }
 
+/// <summary>
+/// Completes the game timer_ tick.
+/// </summary>
+/// <param name="sender">The sender.</param>
+/// <param name="e">The e.</param>
 System::Void UserInterface::completeGameTimer_Tick(System::Object^  sender, System::EventArgs^  e){
 	this->completeGameTimer->Stop();
-	//TODO: Add code that disables selection to board and calculates score.
+	this->CalculateScore();
+}
+
+/// <summary>
+/// Calculates the score.
+/// </summary>
+System::Void UserInterface::CalculateScore(){
+	int userScore = 0;
+	for (int i = 0; i < this->wordBankDGV->Rows->Count; i++){
+		if (this->trie->search(this->wordBankDGV->Rows[i]->Cells[0]->Value->ToString())){
+			userScore += this->calculatePointValue(this->wordBankDGV->Rows[i]->Cells[0]->Value->ToString());
+		}
+	}
+	this->highScoreTextBox->Text += userScore;
+}
+
+/// <summary>
+/// Calculates the point value.
+/// </summary>
+/// <param name="string">The string.</param>
+/// <returns></returns>
+int UserInterface::calculatePointValue(String^ string){
+	int score = 0;
+	if (string->Length >= 8){
+		score += 11;
+	}
+	if (string->Length == 7){
+		score += 5;
+	}
+	if (string->Length == 6){
+		score += 3;
+	}
+	if (string->Length == 5){
+		score += 2;
+	}
+	if (string->Length == 3 || string->Length == 4){
+		score += 1;
+	}
+	return score;
 }

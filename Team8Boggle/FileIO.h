@@ -9,5 +9,7 @@ public:
 	FileIO();
 private:
 	Trie^ trie;
+public:
+	Trie^ getTrie();
 };
 
