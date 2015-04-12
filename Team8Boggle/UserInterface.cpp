@@ -6,6 +6,8 @@ using namespace Team8Boggle;
 /// Initializes a new instance of the <see cref="UserInterface"/> class.
 /// </summary>
 UserInterface::UserInterface(void){
+	
+	this->file = gcnew FileIO();
 
 	this->InitializeComponent();
 	this->resourceManager = gcnew Resources::ResourceManager(L"Team8Boggle.UserInterfaceStrings", this->GetType()->Assembly);
@@ -184,4 +186,9 @@ System::Void UserInterface::calculateTimer() {
 
 	this->time = DateTime::Now;
 	this->theBoard = gcnew GameBoard();
+}
+
+System::Void UserInterface::completeGameTimer_Tick(System::Object^  sender, System::EventArgs^  e){
+	this->completeGameTimer->Stop();
+	//TODO: Add code that disables selection to board and calculates score.
 }

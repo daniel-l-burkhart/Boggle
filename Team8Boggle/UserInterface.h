@@ -1,5 +1,6 @@
 #pragma once
 #include "GameBoard.h";
+#include "FileIO.h"
 
 namespace Team8Boggle {
 
@@ -16,6 +17,8 @@ namespace Team8Boggle {
 	/// </summary>
 	public ref class UserInterface : public System::Windows::Forms::Form
 	{
+
+	private: FileIO^ file;
 	
 	public:
 		UserInterface(void);
@@ -85,5 +88,6 @@ namespace Team8Boggle {
 	private: System::Void gameTimer_Tick(System::Object^  sender, System::EventArgs^  e);
 	private: System::Void calculateTimer();
 
+	private: System::Void completeGameTimer_Tick(System::Object^  sender, System::EventArgs^  e);
 	};
 }

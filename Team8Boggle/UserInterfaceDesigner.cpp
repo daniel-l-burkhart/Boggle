@@ -393,6 +393,7 @@ void UserInterface::InitializeComponent(void){
 	// completeGameTimer
 	// 
 	this->completeGameTimer->Interval = 180000;
+	this->completeGameTimer->Tick += gcnew System::EventHandler(this, &UserInterface::completeGameTimer_Tick);
 	// 
 	// UserInterface
 	// 

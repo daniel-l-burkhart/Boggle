@@ -71,8 +71,11 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="DictionaryNode.cpp" />
     <ClCompile Include="Die.cpp" />
+    <ClCompile Include="FileIO.cpp" />
     <ClCompile Include="GameBoard.cpp" />
+    <ClCompile Include="Trie.cpp" />
     <ClCompile Include="UserInterface.cpp" />
     <ClCompile Include="UserInterfaceDesigner.cpp" />
     <ClCompile Include="WinFormsCLI.cpp" />
@@ -85,8 +88,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="DictionaryNode.h" />
     <ClInclude Include="Die.h" />
+    <ClInclude Include="FileIO.h" />
     <ClInclude Include="GameBoard.h" />
+    <ClInclude Include="Trie.h" />
     <ClInclude Include="UserInterface.h">
       <FileType>CppForm</FileType>
     </ClInclude>
@@ -96,6 +102,9 @@
       <DependentUpon>UserInterface.h</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UserInterfaceStrings.resx" />
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="..\..\..\Downloads\dictionary.txt" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
