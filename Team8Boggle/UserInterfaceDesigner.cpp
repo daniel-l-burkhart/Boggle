@@ -24,11 +24,10 @@ void UserInterface::InitializeComponent(void){
 	this->boardPiece3 = (gcnew System::Windows::Forms::Label());
 	this->boardPiece2 = (gcnew System::Windows::Forms::Label());
 	this->boardPiece1 = (gcnew System::Windows::Forms::Label());
-	this->textBox1 = (gcnew System::Windows::Forms::TextBox());
+	this->guessedWordTextBox = (gcnew System::Windows::Forms::TextBox());
 	this->instructionLabel = (gcnew System::Windows::Forms::Label());
 	this->currentWordLabel = (gcnew System::Windows::Forms::Label());
 	this->btnSubmit = (gcnew System::Windows::Forms::Button());
-	this->textBox2 = (gcnew System::Windows::Forms::TextBox());
 	this->wordBankLabel = (gcnew System::Windows::Forms::Label());
 	this->headerLabel = (gcnew System::Windows::Forms::Label());
 	this->startButton = (gcnew System::Windows::Forms::Button());
@@ -39,6 +38,7 @@ void UserInterface::InitializeComponent(void){
 	this->timeLeft = (gcnew System::Windows::Forms::Label());
 	this->timerLabel = (gcnew System::Windows::Forms::Label());
 	this->completeGameTimer = (gcnew System::Windows::Forms::Timer(this->components));
+	this->wordBox = (gcnew System::Windows::Forms::TextBox());
 	this->gameBoardGroupBox->SuspendLayout();
 	this->SuspendLayout();
 	// 
@@ -65,7 +65,6 @@ void UserInterface::InitializeComponent(void){
 	this->gameBoardGroupBox->Size = System::Drawing::Size(338, 203);
 	this->gameBoardGroupBox->TabIndex = 0;
 	this->gameBoardGroupBox->TabStop = false;
-	this->gameBoardGroupBox->Enter += gcnew System::EventHandler(this, &UserInterface::gameBoardGroupBox_Enter);
 	// 
 	// boardPiece16
 	// 
@@ -259,15 +258,15 @@ void UserInterface::InitializeComponent(void){
 	this->boardPiece1->TabIndex = 0;
 	this->boardPiece1->Click += gcnew System::EventHandler(this, &UserInterface::boardPiece_Click);
 	// 
-	// textBox1
+	// guessedWordTextBox
 	// 
-	this->textBox1->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 9.75F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
-		static_cast<System::Byte>(0)));
-	this->textBox1->Location = System::Drawing::Point(12, 334);
-	this->textBox1->Name = L"textBox1";
-	this->textBox1->ReadOnly = true;
-	this->textBox1->Size = System::Drawing::Size(158, 22);
-	this->textBox1->TabIndex = 1;
+	this->guessedWordTextBox->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 9.75F, System::Drawing::FontStyle::Regular,
+		System::Drawing::GraphicsUnit::Point, static_cast<System::Byte>(0)));
+	this->guessedWordTextBox->Location = System::Drawing::Point(12, 334);
+	this->guessedWordTextBox->Name = L"guessedWordTextBox";
+	this->guessedWordTextBox->ReadOnly = true;
+	this->guessedWordTextBox->Size = System::Drawing::Size(158, 22);
+	this->guessedWordTextBox->TabIndex = 1;
 	// 
 	// instructionLabel
 	// 
@@ -299,15 +298,7 @@ void UserInterface::InitializeComponent(void){
 	this->btnSubmit->TabIndex = 4;
 	this->btnSubmit->Text = L"Submit";
 	this->btnSubmit->UseVisualStyleBackColor = true;
-	// 
-	// textBox2
-	// 
-	this->textBox2->Location = System::Drawing::Point(382, 99);
-	this->textBox2->Multiline = true;
-	this->textBox2->Name = L"textBox2";
-	this->textBox2->ReadOnly = true;
-	this->textBox2->Size = System::Drawing::Size(159, 187);
-	this->textBox2->TabIndex = 5;
+	this->btnSubmit->Click += gcnew System::EventHandler(this, &UserInterface::submitButton_Click);
 	// 
 	// wordBankLabel
 	// 
@@ -395,11 +386,21 @@ void UserInterface::InitializeComponent(void){
 	this->completeGameTimer->Interval = 180000;
 	this->completeGameTimer->Tick += gcnew System::EventHandler(this, &UserInterface::completeGameTimer_Tick);
 	// 
+	// wordBox
+	// 
+	this->wordBox->Location = System::Drawing::Point(382, 99);
+	this->wordBox->Multiline = true;
+	this->wordBox->Name = L"wordBox";
+	this->wordBox->ReadOnly = true;
+	this->wordBox->Size = System::Drawing::Size(159, 187);
+	this->wordBox->TabIndex = 14;
+	// 
 	// UserInterface
 	// 
 	this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
 	this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
 	this->ClientSize = System::Drawing::Size(579, 440);
+	this->Controls->Add(this->wordBox);
 	this->Controls->Add(this->timerLabel);
 	this->Controls->Add(this->timeLeft);
 	this->Controls->Add(this->rotateButton);
@@ -408,11 +409,10 @@ void UserInterface::InitializeComponent(void){
 	this->Controls->Add(this->startButton);
 	this->Controls->Add(this->headerLabel);
 	this->Controls->Add(this->wordBankLabel);
-	this->Controls->Add(this->textBox2);
 	this->Controls->Add(this->btnSubmit);
 	this->Controls->Add(this->currentWordLabel);
 	this->Controls->Add(this->instructionLabel);
-	this->Controls->Add(this->textBox1);
+	this->Controls->Add(this->guessedWordTextBox);
 	this->Controls->Add(this->gameBoardGroupBox);
 	this->Name = L"UserInterface";
 	this->Text = L"Team 8 Boggle by Bradley and Burkhart";

@@ -92,7 +92,9 @@ void UserInterface::PopulateGameBoard() {
 	this->theBoard->getDieSelectionStatus(14) ? this->boardPiece15->BackColor = System::Drawing::Color::Green : this->boardPiece15->BackColor = System::Drawing::Color::DimGray;
 	this->theBoard->getDieSelectionStatus(15) ? this->boardPiece16->BackColor = System::Drawing::Color::Green : this->boardPiece16->BackColor = System::Drawing::Color::DimGray;
 
+	this->guessedWordTextBox->Text = this->theBoard->getGuessedLetters();
 }
+
 
 /// <summary>
 /// Starts the button_ click.
@@ -104,15 +106,8 @@ System::Void UserInterface::startButton_Click(System::Object^  sender, System::E
 	this->calculateTimer();
 
 	this->theBoard = gcnew GameBoard();
+	this->wordBox->Text = "";
 	this->PopulateGameBoard();
-}
-
-/// <summary>
-/// Games the board group box_ enter.
-/// </summary>
-/// <param name="sender">The sender.</param>
-/// <param name="e">The e.</param>
-System::Void UserInterface::gameBoardGroupBox_Enter(System::Object^  sender, System::EventArgs^  e) {
 }
 
 /// <summary>
@@ -172,6 +167,7 @@ System::Void UserInterface::boardPiece_Click(System::Object^  sender, System::Ev
 	}
 	this->PopulateGameBoard();
 }
+
 
 /// <summary>
 /// Rotates the button_ click.
@@ -262,4 +258,12 @@ int UserInterface::calculatePointValue(String^ string){
 		score += 1;
 	}
 	return score;
+}
+
+
+System::Void UserInterface::submitButton_Click(System::Object^  sender, System::EventArgs^  e) {
+	this->wordBox->AppendText(this->theBoard->getGuessedLetters() + "\n");
+	this->guessedWordTextBox->Clear();
+	this->theBoard->clearSelectedDies();
+	this->PopulateGameBoard();
 }

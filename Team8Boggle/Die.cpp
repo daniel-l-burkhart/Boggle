@@ -1,4 +1,6 @@
 #include "Die.h"
+#include <time.h>
+
 
 Die::Die(int dieNumber) {
 	this->selected = false;
@@ -20,38 +22,55 @@ Die::Die(int dieNumber) {
 	array<String^>^ DIE15 = gcnew array<String^>(6){ "P", "A", "C", "E", "M", "D" };
 
 	Random^ random = gcnew Random();
+	srand(time(0));
+
 	switch (dieNumber)
 	{
 	case 0:
 		this->dieValue = DIE0[random->Next(6)];
+		break;
 	case 1:
 		this->dieValue = DIE1[random->Next(6)];
+		break;
 	case 2:
 		this->dieValue = DIE2[random->Next(6)];
+		break;
 	case 3:
 		this->dieValue = DIE3[random->Next(6)];
+		break;
 	case 4:
 		this->dieValue = DIE4[random->Next(6)];
+		break;
 	case 5:
 		this->dieValue = DIE5[random->Next(6)];
+		break;
 	case 6:
 		this->dieValue = DIE6[random->Next(6)];
+		break;
 	case 7:
 		this->dieValue = DIE7[random->Next(6)];
+		break;
 	case 8:
 		this->dieValue = DIE8[random->Next(6)];
+		break;
 	case 9:
 		this->dieValue = DIE9[random->Next(6)];
+		break;
 	case 10:
 		this->dieValue = DIE10[random->Next(6)];
+		break;
 	case 11:
 		this->dieValue = DIE11[random->Next(6)];
+		break;
 	case 12:
 		this->dieValue = DIE12[random->Next(6)];
+		break;
 	case 13:
 		this->dieValue = DIE13[random->Next(6)];
+		break;
 	case 14:
 		this->dieValue = DIE14[random->Next(6)];
+		break;
 	case 15:
 		this->dieValue = DIE15[random->Next(6)];
 		break;

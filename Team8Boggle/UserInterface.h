@@ -21,6 +21,9 @@ namespace Team8Boggle {
 
 	private: FileIO^ file;
 	private: System::Windows::Forms::TextBox^  highScoreTextBox;
+	private: System::Windows::Forms::TextBox^  wordBox;
+
+
 
 	private: Trie^ trie;
 
@@ -54,7 +57,12 @@ namespace Team8Boggle {
 	private: System::Windows::Forms::Label^  boardPiece3;
 	private: System::Windows::Forms::Label^  boardPiece2;
 	private: System::Windows::Forms::Label^  boardPiece1;
-	private: System::Windows::Forms::TextBox^  textBox1;
+	private: System::Windows::Forms::TextBox^  guessedWordTextBox;
+
+
+
+
+
 	private: System::Windows::Forms::Label^  instructionLabel;
 	private: System::Windows::Forms::Label^  currentWordLabel;
 	private: System::Windows::Forms::Button^  btnSubmit;
@@ -81,6 +89,8 @@ namespace Team8Boggle {
 	private:
 		DateTime time;
 
+	private: System::Void submitButton_Click(System::Object^  sender, System::EventArgs^  e);
+
 
 #pragma region Windows Form Designer generated code
 		/// <summary>
@@ -94,7 +104,6 @@ namespace Team8Boggle {
 	private: System::Void startButton_Click(System::Object^  sender, System::EventArgs^  e);
 	private: System::Void boardPiece_Click(System::Object^  sender, System::EventArgs^  e);
 
-	private: System::Void gameBoardGroupBox_Enter(System::Object^  sender, System::EventArgs^  e);
 	private: System::Void gameTimer_Tick(System::Object^  sender, System::EventArgs^  e);
 	private: System::Void calculateTimer();
 
@@ -102,5 +111,7 @@ namespace Team8Boggle {
 
 	private: System::Void CalculateScore();
 	private: int calculatePointValue(String^ str);
+	private: System::Void gameBoardGroupBox_Enter(System::Object^  sender, System::EventArgs^  e) {
+	}
 	};
 }
