@@ -210,9 +210,9 @@ System::Void UserInterface::gameTimer_Tick(System::Object^  sender, System::Even
 /// </summary>
 System::Void UserInterface::calculateTimer() {
 	this->gameTimer->Start();
+	this->completeGameTimer->Start();
 
 	this->time = DateTime::Now;
-	this->theBoard = gcnew GameBoard();
 }
 
 /// <summary>

@@ -78,6 +78,6 @@
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
-    <Text Include="..\..\..\Downloads\dictionary.txt" />
+    <Text Include="dictionary.txt" />
   </ItemGroup>
 </Project>

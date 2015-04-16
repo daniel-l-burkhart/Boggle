@@ -19,15 +19,15 @@ FileIO::FileIO()
 	this->trie = gcnew Trie();
 	String^ fileName = "dictionary.txt";
 
-	OpenFileDialog^ failas = gcnew OpenFileDialog();
+	/*OpenFileDialog^ failas = gcnew OpenFileDialog();
 	failas->Filter = "Text Files|*.txt";
 	if (failas->ShowDialog() != System::Windows::Forms::DialogResult::OK)
 	{
 		return;
 	}
 
-	String^ str = failas->FileName;
-	StreamReader ^strm = gcnew StreamReader(str);
+	String^ str = failas->FileName;*/
+	StreamReader ^strm = gcnew StreamReader(fileName);
 	try
 	{
 		//StreamReader^ din = File::OpenText(fileName);

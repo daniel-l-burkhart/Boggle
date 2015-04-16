@@ -104,7 +104,7 @@
     <EmbeddedResource Include="UserInterfaceStrings.resx" />
   </ItemGroup>
   <ItemGroup>
-    <Text Include="..\..\..\Downloads\dictionary.txt" />
+    <Text Include="dictionary.txt" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
