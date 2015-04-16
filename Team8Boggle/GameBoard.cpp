@@ -8,6 +8,9 @@
 using namespace std;
 using namespace System;
 
+/// <summary>
+/// Initializes a new instance of the <see cref="GameBoard"/> class.
+/// </summary>
 GameBoard::GameBoard() {
 	this->lastSelectedDiePosition = -1;
 	int i = 0;
@@ -18,6 +21,9 @@ GameBoard::GameBoard() {
 	this->shuffleDies();
 }
 
+/// <summary>
+/// Shuffles the dies.
+/// </summary>
 void GameBoard::shuffleDies() {
 	std::srand(unsigned (time(0)));
 	array<Die^>^ tempDies = gcnew array<Die^>(16);
@@ -35,10 +41,18 @@ void GameBoard::shuffleDies() {
 	}
 	DIES = tempDies;
 }
+/// <summary>
+/// Gets the position value.
+/// </summary>
+/// <param name="position">The position.</param>
+/// <returns></returns>
 String^ GameBoard::getPositionValue(int position) {
 	return DIES[position]->getValue();
 }
 
+/// <summary>
+/// Clears the selected dies.
+/// </summary>
 void GameBoard::clearSelectedDies() {
 	int i = 0;
 	while (i < 16) {
@@ -49,18 +63,32 @@ void GameBoard::clearSelectedDies() {
 	this->clearGuessedLetters();
 }
 
+/// <summary>
+/// Appends the guessed letter.
+/// </summary>
+/// <param name="letter">The letter.</param>
 void GameBoard::appendGuessedLetter(String^ letter) {
 
 	this->GuessedLetters = this->GuessedLetters + letter;
 }
 
+/// <summary>
+/// Gets the guessed letters.
+/// </summary>
+/// <returns></returns>
 String^ GameBoard::getGuessedLetters() {
 	return GuessedLetters;
 }
+/// <summary>
+/// Clears the guessed letters.
+/// </summary>
 void GameBoard::clearGuessedLetters() {
 	this->GuessedLetters = "";
 }
 
+/// <summary>
+/// Rotates the game board.
+/// </summary>
 void GameBoard::RotateGameBoard() {
 	array<Die^>^ rotatedDies = gcnew array<Die^>(16);
 	rotatedDies[0] = DIES[12];
@@ -84,6 +112,10 @@ void GameBoard::RotateGameBoard() {
 
 }
 
+/// <summary>
+/// Selects the die.
+/// </summary>
+/// <param name="position">The position.</param>
 void GameBoard::selectDie(int position) {
 	if (this->validSelection(position)) {
 		this->DIES[position]->select_die();
@@ -92,6 +124,11 @@ void GameBoard::selectDie(int position) {
 	}
 }
 
+/// <summary>
+/// Valids the selection.
+/// </summary>
+/// <param name="position">The position.</param>
+/// <returns></returns>
 bool GameBoard::validSelection(int position) {
 	if (this->lastSelectedDiePosition == -1) {
 		return true;
@@ -133,11 +170,19 @@ bool GameBoard::validSelection(int position) {
 	}
 }
 
+/// <summary>
+/// Gets the die selection status.
+/// </summary>
+/// <param name="position">The position.</param>
+/// <returns></returns>
 bool GameBoard::getDieSelectionStatus(int position) {
 	return DIES[position]->isSelected();
 }
 
 
+/// <summary>
+/// Finalizes an instance of the <see cref="GameBoard"/> class.
+/// </summary>
 GameBoard::~GameBoard()
 {
 }

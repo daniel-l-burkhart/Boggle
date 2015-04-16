@@ -2,6 +2,10 @@
 #include <time.h>
 
 
+/// <summary>
+/// Initializes a new instance of the <see cref="Die"/> class.
+/// </summary>
+/// <param name="dieNumber">The die number.</param>
 Die::Die(int dieNumber) {
 	this->selected = false;
 	array<String^>^ DIE0 = gcnew array<String^>(6){ "R", "I", "F", "O", "B", "X" };
@@ -77,21 +81,38 @@ Die::Die(int dieNumber) {
 	}
 }
 
+/// <summary>
+/// Gets the value.
+/// </summary>
+/// <returns></returns>
 String^ Die::getValue() {
 	return this->dieValue;
 }
 
+/// <summary>
+/// Determines whether this instance is selected.
+/// </summary>
+/// <returns></returns>
 bool Die::isSelected(){
 	return this->selected;
 }
 
+/// <summary>
+/// Select_dies this instance.
+/// </summary>
 void Die::select_die() {
 	this->selected = true;
 }
 
+/// <summary>
+/// Deselect_dies this instance.
+/// </summary>
 void Die::deselect_die() {
 	this->selected = false;
 }
 
+/// <summary>
+/// Finalizes an instance of the <see cref="Die"/> class.
+/// </summary>
 Die::~Die() {
 }

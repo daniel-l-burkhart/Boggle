@@ -11,6 +11,9 @@ using namespace System;
 using namespace System::IO;
 
 
+/// <summary>
+/// Initializes a new instance of the <see cref="Trie"/> class.
+/// </summary>
 Trie::Trie()
 {
 	this->head = gcnew DictionaryNode();
@@ -19,6 +22,10 @@ Trie::Trie()
 
 }
 
+/// <summary>
+/// Inserts the specified word.
+/// </summary>
+/// <param name="word">The word.</param>
 void Trie::insert(String^ word)
 {
 	DictionaryNode ^current = head;
@@ -27,8 +34,8 @@ void Trie::insert(String^ word)
 
 	for (int i = 0; i < word->Length; ++i)
 	{
-		int letter = (int)word[i] - (int)'a';
-		if (current->child[letter] == nullptr){
+		int letter = (int)word[i]-(int)'a';
+		if (!current->child[letter]){
 			current->child[letter] = gcnew DictionaryNode();
 		}
 
@@ -38,32 +45,24 @@ void Trie::insert(String^ word)
 	current->isEnd = true;
 }
 
+/// <summary>
+/// Searches the specified word.
+/// </summary>
+/// <param name="word">The word.</param>
+/// <returns></returns>
 bool Trie::search(String^ word)
 {
+	word = word->ToLower();
 	DictionaryNode ^current = head;
+
+
 	for (int i = 0; i < word->Length; ++i)
 	{
 		int letter = (int)word[i] - (int)'a';
-		if (current->child[letter] == nullptr){
+		if (!current->child[letter]){
 			return false;
 		}
 		current = current->child[letter];
 	}
 	return current->isEnd;
-}
-
-int Trie::words_with_prefix(String^ prefix)
-{
-	DictionaryNode ^current = head;
-	for (int i = 0; i < prefix->Length; ++i)
-	{
-		int letter = (int)prefix[i] - (int)'a';
-		if (current->child[letter] == nullptr){
-			return 0;
-		}
-		else{
-			current = current->child[letter];
-		}
-	}
-	return current->prefix_count;
 }

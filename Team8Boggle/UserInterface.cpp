@@ -2,6 +2,7 @@
 #include "Trie.h"
 
 using namespace Team8Boggle;
+using namespace System::Collections;
 
 /// <summary>
 /// Initializes a new instance of the <see cref="UserInterface" /> class.
@@ -12,6 +13,7 @@ UserInterface::UserInterface(void){
 	this->trie = this->file->getTrie();
 
 	this->InitializeComponent();
+
 	this->resourceManager = gcnew Resources::ResourceManager(L"Team8Boggle.UserInterfaceStrings", this->GetType()->Assembly);
 
 	this->instructionLabel->Text = this->resourceManager->GetString("instructionText");
@@ -24,6 +26,7 @@ UserInterface::UserInterface(void){
 	this->quitButton->Text = this->resourceManager->GetString("quitButtonText");
 	this->rotateButton->Text = this->resourceManager->GetString("rotateButtonText");
 	this->timeLeft->Text = this->resourceManager->GetString("timeLeftText");
+	this->scoreBoardLabel->Text = this->resourceManager->GetString("scoreBoardText");
 
 	this->boardPieces[0] = this->boardPiece1;
 	this->boardPieces[1] = this->boardPiece2;
@@ -226,13 +229,19 @@ System::Void UserInterface::completeGameTimer_Tick(System::Object^  sender, Syst
 /// Calculates the score.
 /// </summary>
 System::Void UserInterface::CalculateScore(){
+	String^ guessedWords = this->wordBox->Text;
+
+	array<String^>^ words = guessedWords->Split();
+
 	int userScore = 0;
-	for (int i = 0; i < this->wordBankDGV->Rows->Count; i++){
-		if (this->trie->search(this->wordBankDGV->Rows[i]->Cells[0]->Value->ToString())){
-			userScore += this->calculatePointValue(this->wordBankDGV->Rows[i]->Cells[0]->Value->ToString());
+	for (int i = 0; i < words->Length; i++){
+
+		if (this->trie->search(words[i])){
+
+			userScore += this->calculatePointValue(words[i]);
 		}
 	}
-	this->highScoreTextBox->Text += userScore;
+	this->txtScore->Text += ("New Score: " + userScore + "\r\n");
 }
 
 /// <summary>
@@ -261,9 +270,26 @@ int UserInterface::calculatePointValue(String^ string){
 }
 
 
+/// <summary>
+/// Submits the button_ click.
+/// </summary>
+/// <param name="sender">The sender.</param>
+/// <param name="e">The e.</param>
 System::Void UserInterface::submitButton_Click(System::Object^  sender, System::EventArgs^  e) {
 	this->wordBox->AppendText(this->theBoard->getGuessedLetters() + "\n");
 	this->guessedWordTextBox->Clear();
 	this->theBoard->clearSelectedDies();
 	this->PopulateGameBoard();
+}
+
+/// <summary>
+/// Quits the button_ click.
+/// </summary>
+/// <param name="sender">The sender.</param>
+/// <param name="e">The e.</param>
+System::Void UserInterface::quitButton_Click(System::Object^  sender, System::EventArgs^  e){
+	this->gameTimer->Stop();
+	this->completeGameTimer->Stop();
+	this->timerLabel->Text = "0:00";
+	this->CalculateScore();
 }

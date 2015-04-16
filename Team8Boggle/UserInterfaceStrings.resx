@@ -138,6 +138,9 @@
   <data name="rotateButtonText" xml:space="preserve">
     <value>Rotate Board</value>
   </data>
+  <data name="scoreBoardText" xml:space="preserve">
+    <value>Score Board:</value>
+  </data>
   <data name="startButtonText" xml:space="preserve">
     <value>Start</value>
   </data>

@@ -39,6 +39,8 @@ void UserInterface::InitializeComponent(void){
 	this->timerLabel = (gcnew System::Windows::Forms::Label());
 	this->completeGameTimer = (gcnew System::Windows::Forms::Timer(this->components));
 	this->wordBox = (gcnew System::Windows::Forms::TextBox());
+	this->txtScore = (gcnew System::Windows::Forms::TextBox());
+	this->scoreBoardLabel = (gcnew System::Windows::Forms::Label());
 	this->gameBoardGroupBox->SuspendLayout();
 	this->SuspendLayout();
 	// 
@@ -347,6 +349,7 @@ void UserInterface::InitializeComponent(void){
 	this->quitButton->TabIndex = 10;
 	this->quitButton->Text = L"Quit";
 	this->quitButton->UseVisualStyleBackColor = true;
+	this->quitButton->Click += gcnew System::EventHandler(this, &UserInterface::quitButton_Click);
 	// 
 	// rotateButton
 	// 
@@ -395,11 +398,31 @@ void UserInterface::InitializeComponent(void){
 	this->wordBox->Size = System::Drawing::Size(159, 187);
 	this->wordBox->TabIndex = 14;
 	// 
+	// txtScore
+	// 
+	this->txtScore->Location = System::Drawing::Point(12, 434);
+	this->txtScore->Multiline = true;
+	this->txtScore->Name = L"txtScore";
+	this->txtScore->ReadOnly = true;
+	this->txtScore->Size = System::Drawing::Size(529, 86);
+	this->txtScore->TabIndex = 15;
+	// 
+	// scoreBoardLabel
+	// 
+	this->scoreBoardLabel->AutoSize = true;
+	this->scoreBoardLabel->Location = System::Drawing::Point(13, 418);
+	this->scoreBoardLabel->Name = L"scoreBoardLabel";
+	this->scoreBoardLabel->Size = System::Drawing::Size(35, 13);
+	this->scoreBoardLabel->TabIndex = 16;
+	this->scoreBoardLabel->Text = L"label1";
+	// 
 	// UserInterface
 	// 
 	this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
 	this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
-	this->ClientSize = System::Drawing::Size(579, 440);
+	this->ClientSize = System::Drawing::Size(579, 556);
+	this->Controls->Add(this->scoreBoardLabel);
+	this->Controls->Add(this->txtScore);
 	this->Controls->Add(this->wordBox);
 	this->Controls->Add(this->timerLabel);
 	this->Controls->Add(this->timeLeft);
