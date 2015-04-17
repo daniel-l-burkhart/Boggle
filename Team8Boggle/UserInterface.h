@@ -25,7 +25,6 @@ namespace Team8Boggle {
 	private: System::Windows::Forms::TextBox^  wordBox;
 	private: System::Windows::Forms::TextBox^  txtScore;
 	private: System::Windows::Forms::Label^  scoreBoardLabel;
-	private: System::Windows::Forms::Button^  highScoreButton;
 
 
 
@@ -64,10 +63,6 @@ namespace Team8Boggle {
 	private: System::Windows::Forms::Label^  boardPiece1;
 	private: System::Windows::Forms::TextBox^  guessedWordTextBox;
 
-
-
-
-
 	private: System::Windows::Forms::Label^  instructionLabel;
 	private: System::Windows::Forms::Label^  currentWordLabel;
 	private: System::Windows::Forms::Button^  btnSubmit;
@@ -88,11 +83,7 @@ namespace Team8Boggle {
 
 	private: System::Timers::Timer^ currentGameTimer;
 	private: System::Windows::Forms::Timer^  completeGameTimer;
-
-
-
-	private:
-		DateTime time;
+	private: DateTime time;
 
 	private: System::Void submitButton_Click(System::Object^  sender, System::EventArgs^  e);
 
@@ -119,6 +110,6 @@ namespace Team8Boggle {
 	private: System::Void gameBoardGroupBox_Enter(System::Object^  sender, System::EventArgs^  e) {
 	}
 	private: System::Void quitButton_Click(System::Object^  sender, System::EventArgs^  e);
-	private: System::Void highScoreButton_Click(System::Object^  sender, System::EventArgs^  e);
-	};
+	private: System::Void resetButton_Click(System::Object^  sender, System::EventArgs^  e);
+};
 }

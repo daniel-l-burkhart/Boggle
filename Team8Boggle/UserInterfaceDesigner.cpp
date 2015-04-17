@@ -341,6 +341,7 @@ void UserInterface::InitializeComponent(void){
 	this->resetButton->TabIndex = 9;
 	this->resetButton->Text = L"Reset";
 	this->resetButton->UseVisualStyleBackColor = true;
+	this->resetButton->Click += gcnew System::EventHandler(this, &UserInterface::resetButton_Click);
 	// 
 	// quitButton
 	// 
@@ -383,7 +384,7 @@ void UserInterface::InitializeComponent(void){
 	this->timerLabel->Name = L"timerLabel";
 	this->timerLabel->Size = System::Drawing::Size(28, 13);
 	this->timerLabel->TabIndex = 13;
-	this->timerLabel->Text = L"0:00";
+	this->timerLabel->Text = L"3:00";
 	// 
 	// completeGameTimer
 	// 

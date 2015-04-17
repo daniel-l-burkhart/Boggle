@@ -1,6 +1,5 @@
 #include "UserInterface.h"
 #include "Trie.h"
-#include "HighScoresView.h"
 
 using namespace Team8Boggle;
 using namespace System::Collections;
@@ -45,7 +44,6 @@ UserInterface::UserInterface(void){
 	this->boardPieces[13] = this->boardPiece14;
 	this->boardPieces[14] = this->boardPiece15;
 	this->boardPieces[15] = this->boardPiece16;
-
 }
 
 /// <summary>
@@ -107,11 +105,10 @@ void UserInterface::PopulateGameBoard() {
 /// <param name="e">The e.</param>
 System::Void UserInterface::startButton_Click(System::Object^  sender, System::EventArgs^  e) {
 
-	this->calculateTimer();
-
 	this->theBoard = gcnew GameBoard();
 	this->wordBox->Text = "";
 	this->PopulateGameBoard();
+	this->calculateTimer();
 }
 
 /// <summary>
@@ -198,12 +195,15 @@ System::Void UserInterface::gameTimer_Tick(System::Object^  sender, System::Even
 	if (remainingSeconds <= 0)
 	{
 		this->gameTimer->Stop();
+		this->timerLabel->Text = "3:00";
+	}
+	else{
+		int minutes = remainingSeconds / 60;
+		int seconds = remainingSeconds % 60;
+		this->timerLabel->Text = minutes.ToString() + ":" + seconds.ToString();
 	}
 
-	int minutes = remainingSeconds / 60;
-	int seconds = remainingSeconds % 60;
 
-	this->timerLabel->Text = minutes.ToString() + ":" + seconds.ToString();
 }
 
 /// <summary>
@@ -250,23 +250,45 @@ System::Void UserInterface::CalculateScore(){
 /// </summary>
 /// <param name="string">The string.</param>
 /// <returns></returns>
-int UserInterface::calculatePointValue(String^ string){
+int UserInterface::calculatePointValue(String^ currentWord){
+
 	int score = 0;
-	if (string->Length >= 8){
-		score += 11;
+
+	if (currentWord->Length > 8){
+		score = 11;
 	}
-	if (string->Length == 7){
-		score += 5;
+	switch (currentWord->Length){
+	case 3: {
+		score = 1;
+		break;
 	}
-	if (string->Length == 6){
-		score += 3;
+	case 4:{
+		score = 1;
+		break;
 	}
-	if (string->Length == 5){
-		score += 2;
+	case 5:{
+		score = 2;
+		break;
 	}
-	if (string->Length == 3 || string->Length == 4){
-		score += 1;
+	case 6:{
+		score = 3;
+		break;
 	}
+	case 7:{
+		score = 5;
+		break;
+	}
+	case 8:{
+		score = 11;
+		break;
+	}
+	default:{
+		score = 0;
+		break;
+	}
+
+	}
+
 	return score;
 }
 
@@ -295,7 +317,13 @@ System::Void UserInterface::quitButton_Click(System::Object^  sender, System::Ev
 	this->CalculateScore();
 }
 
-System::Void UserInterface::highScoreButton_Click(System::Object^  sender, System::EventArgs^  e) {
-	HighScoresView^ hs = gcnew HighScoresView();
-	hs->Show();
+/// <summary>
+/// Resets the button_ click.
+/// </summary>
+/// <param name="sender">The sender.</param>
+/// <param name="e">The e.</param>
+System::Void UserInterface::resetButton_Click(System::Object^  sender, System::EventArgs^  e){
+	this->guessedWordTextBox->Clear();
+	this->theBoard->clearSelectedDies();
+	this->PopulateGameBoard();
 }
