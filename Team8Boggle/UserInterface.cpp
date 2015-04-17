@@ -1,5 +1,6 @@
 #include "UserInterface.h"
 #include "Trie.h"
+#include "HighScoresView.h"
 
 using namespace Team8Boggle;
 using namespace System::Collections;
@@ -292,4 +293,9 @@ System::Void UserInterface::quitButton_Click(System::Object^  sender, System::Ev
 	this->completeGameTimer->Stop();
 	this->timerLabel->Text = "0:00";
 	this->CalculateScore();
+}
+
+System::Void UserInterface::highScoreButton_Click(System::Object^  sender, System::EventArgs^  e) {
+	HighScoresView^ hs = gcnew HighScoresView();
+	hs->Show();
 }

@@ -26,7 +26,7 @@ Die::Die(int dieNumber) {
 	array<String^>^ DIE15 = gcnew array<String^>(6){ "P", "A", "C", "E", "M", "D" };
 
 	Random^ random = gcnew Random();
-	srand(time(0));
+	srand((unsigned) time(0));
 
 	switch (dieNumber)
 	{

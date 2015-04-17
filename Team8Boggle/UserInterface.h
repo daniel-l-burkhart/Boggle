@@ -25,6 +25,7 @@ namespace Team8Boggle {
 	private: System::Windows::Forms::TextBox^  wordBox;
 	private: System::Windows::Forms::TextBox^  txtScore;
 	private: System::Windows::Forms::Label^  scoreBoardLabel;
+	private: System::Windows::Forms::Button^  highScoreButton;
 
 
 
@@ -118,5 +119,6 @@ namespace Team8Boggle {
 	private: System::Void gameBoardGroupBox_Enter(System::Object^  sender, System::EventArgs^  e) {
 	}
 	private: System::Void quitButton_Click(System::Object^  sender, System::EventArgs^  e);
+	private: System::Void highScoreButton_Click(System::Object^  sender, System::EventArgs^  e);
 	};
 }

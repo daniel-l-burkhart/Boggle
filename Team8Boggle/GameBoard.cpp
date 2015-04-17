@@ -168,6 +168,7 @@ bool GameBoard::validSelection(int position) {
 		) {
 		return true;
 	}
+	return false;
 }
 
 /// <summary>

@@ -1,6 +1,9 @@
 #include "FileIO.h"
 #using<system.dll>
 #include "Trie.h"
+#include <iostream>
+#include <fstream>
+#include <stdio.h>
 
 using namespace System;
 using namespace System::IO;
@@ -9,6 +12,8 @@ using namespace System::Collections;
 using namespace System::Windows::Forms;
 using namespace System::Data;
 using namespace System::Drawing;
+using namespace std;
+using namespace System::Runtime::InteropServices;
 
 
 /// <summary>
@@ -49,6 +54,18 @@ FileIO::FileIO()
 		else{
 			Console::WriteLine("problem reading file '{0}'", fileName);
 		}
+	}
+}
+
+void FileIO::SaveScores(array<Player^>^ players) {
+	for (int i = 0; i < players->Length; i++) {
+		ofstream outputFile("scores.txt");
+
+		String^ s = players[i]->getName() + ":" + players[i]->getScore();
+		IntPtr ip = Marshal::StringToHGlobalAnsi(s);
+		const char* str = static_cast<const char*>(ip.ToPointer());
+
+		outputFile << str << endl;
 	}
 }
 

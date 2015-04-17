@@ -75,6 +75,8 @@
     <ClCompile Include="Die.cpp" />
     <ClCompile Include="FileIO.cpp" />
     <ClCompile Include="GameBoard.cpp" />
+    <ClCompile Include="HighScoresView.cpp" />
+    <ClCompile Include="Player.cpp" />
     <ClCompile Include="Trie.cpp" />
     <ClCompile Include="UserInterface.cpp" />
     <ClCompile Include="UserInterfaceDesigner.cpp" />
@@ -92,12 +94,19 @@
     <ClInclude Include="Die.h" />
     <ClInclude Include="FileIO.h" />
     <ClInclude Include="GameBoard.h" />
+    <ClInclude Include="HighScoresView.h">
+      <FileType>CppForm</FileType>
+    </ClInclude>
+    <ClInclude Include="Player.h" />
     <ClInclude Include="Trie.h" />
     <ClInclude Include="UserInterface.h">
       <FileType>CppForm</FileType>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="HighScoresView.resx">
+      <DependentUpon>HighScoresView.h</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="UserInterface.resx">
       <DependentUpon>UserInterface.h</DependentUpon>
     </EmbeddedResource>

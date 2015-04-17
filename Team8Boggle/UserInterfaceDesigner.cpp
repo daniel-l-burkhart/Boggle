@@ -41,6 +41,7 @@ void UserInterface::InitializeComponent(void){
 	this->wordBox = (gcnew System::Windows::Forms::TextBox());
 	this->txtScore = (gcnew System::Windows::Forms::TextBox());
 	this->scoreBoardLabel = (gcnew System::Windows::Forms::Label());
+	this->highScoreButton = (gcnew System::Windows::Forms::Button());
 	this->gameBoardGroupBox->SuspendLayout();
 	this->SuspendLayout();
 	// 
@@ -416,11 +417,22 @@ void UserInterface::InitializeComponent(void){
 	this->scoreBoardLabel->TabIndex = 16;
 	this->scoreBoardLabel->Text = L"label1";
 	// 
+	// highScoreButton
+	// 
+	this->highScoreButton->Location = System::Drawing::Point(256, 378);
+	this->highScoreButton->Name = L"highScoreButton";
+	this->highScoreButton->Size = System::Drawing::Size(75, 23);
+	this->highScoreButton->TabIndex = 17;
+	this->highScoreButton->Text = L"Hi Scores";
+	this->highScoreButton->UseVisualStyleBackColor = true;
+	this->highScoreButton->Click += gcnew System::EventHandler(this, &UserInterface::highScoreButton_Click);
+	// 
 	// UserInterface
 	// 
 	this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
 	this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
 	this->ClientSize = System::Drawing::Size(579, 556);
+	this->Controls->Add(this->highScoreButton);
 	this->Controls->Add(this->scoreBoardLabel);
 	this->Controls->Add(this->txtScore);
 	this->Controls->Add(this->wordBox);
