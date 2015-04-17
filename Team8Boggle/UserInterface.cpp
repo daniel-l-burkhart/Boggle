@@ -44,7 +44,6 @@ UserInterface::UserInterface(void){
 	this->boardPieces[13] = this->boardPiece14;
 	this->boardPieces[14] = this->boardPiece15;
 	this->boardPieces[15] = this->boardPiece16;
-
 }
 
 /// <summary>
@@ -196,12 +195,15 @@ System::Void UserInterface::gameTimer_Tick(System::Object^  sender, System::Even
 	if (remainingSeconds <= 0)
 	{
 		this->gameTimer->Stop();
+		this->timerLabel->Text = "3:00";
+	}
+	else{
+		int minutes = remainingSeconds / 60;
+		int seconds = remainingSeconds % 60;
+		this->timerLabel->Text = minutes.ToString() + ":" + seconds.ToString();
 	}
 
-	int minutes = remainingSeconds / 60;
-	int seconds = remainingSeconds % 60;
 
-	this->timerLabel->Text = minutes.ToString() + ":" + seconds.ToString();
 }
 
 /// <summary>

@@ -383,7 +383,7 @@ void UserInterface::InitializeComponent(void){
 	this->timerLabel->Name = L"timerLabel";
 	this->timerLabel->Size = System::Drawing::Size(28, 13);
 	this->timerLabel->TabIndex = 13;
-	this->timerLabel->Text = L"0:00";
+	this->timerLabel->Text = L"3:00";
 	// 
 	// completeGameTimer
 	// 

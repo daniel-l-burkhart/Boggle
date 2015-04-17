@@ -63,10 +63,6 @@ namespace Team8Boggle {
 	private: System::Windows::Forms::Label^  boardPiece1;
 	private: System::Windows::Forms::TextBox^  guessedWordTextBox;
 
-
-
-
-
 	private: System::Windows::Forms::Label^  instructionLabel;
 	private: System::Windows::Forms::Label^  currentWordLabel;
 	private: System::Windows::Forms::Button^  btnSubmit;
@@ -87,11 +83,7 @@ namespace Team8Boggle {
 
 	private: System::Timers::Timer^ currentGameTimer;
 	private: System::Windows::Forms::Timer^  completeGameTimer;
-
-
-
-	private:
-		DateTime time;
+	private: DateTime time;
 
 	private: System::Void submitButton_Click(System::Object^  sender, System::EventArgs^  e);
 
