@@ -41,7 +41,9 @@ void UserInterface::InitializeComponent(void){
 	this->wordBox = (gcnew System::Windows::Forms::TextBox());
 	this->txtScore = (gcnew System::Windows::Forms::TextBox());
 	this->scoreBoardLabel = (gcnew System::Windows::Forms::Label());
-	this->highScoreButton = (gcnew System::Windows::Forms::Button());
+	this->highScoresButton = (gcnew System::Windows::Forms::Button());
+	this->playerNameTextBox = (gcnew System::Windows::Forms::TextBox());
+	this->playerNameLabel = (gcnew System::Windows::Forms::Label());
 	this->gameBoardGroupBox->SuspendLayout();
 	this->SuspendLayout();
 	// 
@@ -406,7 +408,7 @@ void UserInterface::InitializeComponent(void){
 	this->txtScore->Multiline = true;
 	this->txtScore->Name = L"txtScore";
 	this->txtScore->ReadOnly = true;
-	this->txtScore->Size = System::Drawing::Size(529, 86);
+	this->txtScore->Size = System::Drawing::Size(529, 150);
 	this->txtScore->TabIndex = 15;
 	// 
 	// scoreBoardLabel
@@ -418,22 +420,41 @@ void UserInterface::InitializeComponent(void){
 	this->scoreBoardLabel->TabIndex = 16;
 	this->scoreBoardLabel->Text = L"label1";
 	// 
-	// highScoreButton
+	// highScoresButton
 	// 
-	this->highScoreButton->Location = System::Drawing::Point(256, 378);
-	this->highScoreButton->Name = L"highScoreButton";
-	this->highScoreButton->Size = System::Drawing::Size(75, 23);
-	this->highScoreButton->TabIndex = 17;
-	this->highScoreButton->Text = L"Hi Scores";
-	this->highScoreButton->UseVisualStyleBackColor = true;
-	this->highScoreButton->Click += gcnew System::EventHandler(this, &UserInterface::highScoreButton_Click);
+	this->highScoresButton->Location = System::Drawing::Point(256, 378);
+	this->highScoresButton->Name = L"highScoresButton";
+	this->highScoresButton->Size = System::Drawing::Size(75, 23);
+	this->highScoresButton->TabIndex = 17;
+	this->highScoresButton->Text = L"High Scores";
+	this->highScoresButton->UseVisualStyleBackColor = true;
+	this->highScoresButton->Click += gcnew System::EventHandler(this, &UserInterface::highScoresButton_Click);
+	// 
+	// playerNameTextBox
+	// 
+	this->playerNameTextBox->Location = System::Drawing::Point(344, 21);
+	this->playerNameTextBox->Name = L"playerNameTextBox";
+	this->playerNameTextBox->Size = System::Drawing::Size(212, 20);
+	this->playerNameTextBox->TabIndex = 18;
+	this->playerNameTextBox->Text = L"Boggle Player";
+	// 
+	// playerNameLabel
+	// 
+	this->playerNameLabel->AutoSize = true;
+	this->playerNameLabel->Location = System::Drawing::Point(252, 24);
+	this->playerNameLabel->Name = L"playerNameLabel";
+	this->playerNameLabel->Size = System::Drawing::Size(79, 13);
+	this->playerNameLabel->TabIndex = 19;
+	this->playerNameLabel->Text = L"Player Name ->";
 	// 
 	// UserInterface
 	// 
 	this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
 	this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
-	this->ClientSize = System::Drawing::Size(579, 556);
-	this->Controls->Add(this->highScoreButton);
+	this->ClientSize = System::Drawing::Size(579, 596);
+	this->Controls->Add(this->playerNameLabel);
+	this->Controls->Add(this->playerNameTextBox);
+	this->Controls->Add(this->highScoresButton);
 	this->Controls->Add(this->scoreBoardLabel);
 	this->Controls->Add(this->txtScore);
 	this->Controls->Add(this->wordBox);
@@ -450,6 +471,7 @@ void UserInterface::InitializeComponent(void){
 	this->Controls->Add(this->instructionLabel);
 	this->Controls->Add(this->guessedWordTextBox);
 	this->Controls->Add(this->gameBoardGroupBox);
+	this->Location = System::Drawing::Point(256, 378);
 	this->Name = L"UserInterface";
 	this->Text = L"Team 8 Boggle by Bradley and Burkhart";
 	this->gameBoardGroupBox->ResumeLayout(false);

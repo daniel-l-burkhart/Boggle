@@ -26,9 +26,13 @@ namespace Team8Boggle {
 		HighScoresView(void)
 		{
 			InitializeComponent();
-			//
-			//TODO: Add the constructor code here
-			//
+			this->highScoresLoad();
+			for each(Player^ p in this->players) {
+				if (p != nullptr) {
+					this->textBox1->AppendText(p->getName() + ":" + p->getScore() + "\r\n");
+					this->playersCount++;
+				}
+			}
 		}
 
 	protected:

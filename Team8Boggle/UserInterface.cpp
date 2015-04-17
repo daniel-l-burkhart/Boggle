@@ -1,5 +1,6 @@
 #include "UserInterface.h"
 #include "Trie.h"
+#include "HighScoresView.h"
 
 using namespace Team8Boggle;
 using namespace System::Collections;
@@ -44,6 +45,7 @@ UserInterface::UserInterface(void){
 	this->boardPieces[13] = this->boardPiece14;
 	this->boardPieces[14] = this->boardPiece15;
 	this->boardPieces[15] = this->boardPiece16;
+	this->hs = gcnew HighScoresView();
 }
 
 /// <summary>
@@ -243,6 +245,8 @@ System::Void UserInterface::CalculateScore(){
 		}
 	}
 	this->txtScore->Text += ("New Score: " + userScore + "\r\n");
+	hs->TryAddHighScore(this->playerNameTextBox->Text, userScore);
+	hs->ShowDialog();
 }
 
 /// <summary>
@@ -315,6 +319,8 @@ System::Void UserInterface::quitButton_Click(System::Object^  sender, System::Ev
 	this->completeGameTimer->Stop();
 	this->timerLabel->Text = "0:00";
 	this->CalculateScore();
+
+
 }
 
 /// <summary>
@@ -326,4 +332,8 @@ System::Void UserInterface::resetButton_Click(System::Object^  sender, System::E
 	this->guessedWordTextBox->Clear();
 	this->theBoard->clearSelectedDies();
 	this->PopulateGameBoard();
+}
+
+System::Void UserInterface::highScoresButton_Click(System::Object^  sender, System::EventArgs^  e) {
+	hs->ShowDialog();
 }

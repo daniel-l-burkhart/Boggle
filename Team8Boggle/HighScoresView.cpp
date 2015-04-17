@@ -5,8 +5,8 @@ using namespace Team8Boggle;
 
 void HighScoresView::TryAddHighScore(String^ name, int score) {
 	if (playersCount < 10) {
-		players[playersCount] = gcnew Player(name, score);
-		playersCount++;
+		this->players[playersCount] = gcnew Player(name, score);
+		this->playersCount++;
 	}
 	else if (score < getPlayerWithLowestScore()->getScore()) {
 		return;
@@ -21,6 +21,7 @@ void HighScoresView::TryAddHighScore(String^ name, int score) {
 		this->textBox1->AppendText(players[i]->getName() + " : " + players[i]->getScore() + "\n");
 		i++;
 	}
+	this->highScoresSave();
 }
 
 void HighScoresView::addAndSort(Player^ player) {
@@ -60,10 +61,13 @@ Player^ HighScoresView::getPlayerWithLowestScore() {
 }
 
 void HighScoresView::highScoresSave() {
-	FileIO^ fileIO = gcnew(FileIO);
-	fileIO->SaveScores(this->players);
+	if (this->players->Length >0) {
+		FileIO^ fileIO = gcnew(FileIO);
+		fileIO->SaveScores(this->players);
+	}
 }
 
 void HighScoresView::highScoresLoad() {
-
+	FileIO^ fileIO = gcnew(FileIO);
+	this->players = fileIO->LoadScores();
 }

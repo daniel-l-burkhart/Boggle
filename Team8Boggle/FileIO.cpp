@@ -23,20 +23,9 @@ FileIO::FileIO()
 {
 	this->trie = gcnew Trie();
 	String^ fileName = "dictionary.txt";
-
-	/*OpenFileDialog^ failas = gcnew OpenFileDialog();
-	failas->Filter = "Text Files|*.txt";
-	if (failas->ShowDialog() != System::Windows::Forms::DialogResult::OK)
-	{
-		return;
-	}
-
-	String^ str = failas->FileName;*/
 	StreamReader ^strm = gcnew StreamReader(fileName);
 	try
 	{
-		//StreamReader^ din = File::OpenText(fileName);
-
 		String^ str;
 		int count = 0;
 		while ((str = strm->ReadLine()) != nullptr)
@@ -58,15 +47,43 @@ FileIO::FileIO()
 }
 
 void FileIO::SaveScores(array<Player^>^ players) {
-	for (int i = 0; i < players->Length; i++) {
-		ofstream outputFile("scores.txt");
+	ofstream outputFile("scores.txt");
+	int i = 0;
+	while (i < 10) {
+		if (players[i] != nullptr) {
+			String^ s = players[i]->getName() + ":" + players[i]->getScore();
+			IntPtr ip = Marshal::StringToHGlobalAnsi(s);
+			const char* str = static_cast<const char*>(ip.ToPointer());
 
-		String^ s = players[i]->getName() + ":" + players[i]->getScore();
-		IntPtr ip = Marshal::StringToHGlobalAnsi(s);
-		const char* str = static_cast<const char*>(ip.ToPointer());
-
-		outputFile << str << endl;
+			outputFile << str << endl;
+		}
+		i++;
 	}
+	outputFile.close();
+}
+
+array<Player^>^ FileIO::LoadScores() {
+	array<Player^>^ players = gcnew array<Player^>(10);
+	try
+	{
+		StreamReader^ din = File::OpenText("scores.txt");
+		String^ delimStr = " ,.:\t";
+		String^ str;
+		array<Char>^ delimiter = delimStr->ToCharArray();
+
+		int i = 0;
+		while ((str = din->ReadLine()) != nullptr)
+		{
+			array<String^>^ scoreData;
+			scoreData = str->Split(delimiter);
+			players[i] = gcnew Player(scoreData[0], Convert::ToInt32(scoreData[1]));
+			i++;
+		}
+	}
+	catch (Exception^ e)
+	{
+	}
+	return players;
 }
 
 /// <summary>

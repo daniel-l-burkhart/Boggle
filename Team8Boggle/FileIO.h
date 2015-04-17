@@ -14,5 +14,6 @@ private:
 public:
 	Trie^ getTrie();
 	void SaveScores(array<Player^>^);
+	array<Player^>^ LoadScores();
 };
 

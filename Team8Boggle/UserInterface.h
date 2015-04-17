@@ -3,6 +3,7 @@
 #include "GameBoard.h"
 #include "FileIO.h"
 #include "Trie.h"
+#include "HighScoresView.h"
 
 namespace Team8Boggle {
 
@@ -25,6 +26,9 @@ namespace Team8Boggle {
 	private: System::Windows::Forms::TextBox^  wordBox;
 	private: System::Windows::Forms::TextBox^  txtScore;
 	private: System::Windows::Forms::Label^  scoreBoardLabel;
+	private: System::Windows::Forms::Button^  highScoresButton;
+	private: System::Windows::Forms::TextBox^  playerNameTextBox;
+	private: System::Windows::Forms::Label^  playerNameLabel;
 
 
 
@@ -111,5 +115,7 @@ namespace Team8Boggle {
 	}
 	private: System::Void quitButton_Click(System::Object^  sender, System::EventArgs^  e);
 	private: System::Void resetButton_Click(System::Object^  sender, System::EventArgs^  e);
-};
+	private: System::Void highScoresButton_Click(System::Object^  sender, System::EventArgs^  e);
+	private: HighScoresView^ hs;
+	};
 }
