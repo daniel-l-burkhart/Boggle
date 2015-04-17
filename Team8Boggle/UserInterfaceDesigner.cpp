@@ -340,6 +340,7 @@ void UserInterface::InitializeComponent(void){
 	this->resetButton->TabIndex = 9;
 	this->resetButton->Text = L"Reset";
 	this->resetButton->UseVisualStyleBackColor = true;
+	this->resetButton->Click += gcnew System::EventHandler(this, &UserInterface::resetButton_Click);
 	// 
 	// quitButton
 	// 

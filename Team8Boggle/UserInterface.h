@@ -118,5 +118,6 @@ namespace Team8Boggle {
 	private: System::Void gameBoardGroupBox_Enter(System::Object^  sender, System::EventArgs^  e) {
 	}
 	private: System::Void quitButton_Click(System::Object^  sender, System::EventArgs^  e);
-	};
+	private: System::Void resetButton_Click(System::Object^  sender, System::EventArgs^  e);
+};
 }

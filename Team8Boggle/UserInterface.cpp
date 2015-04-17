@@ -106,11 +106,10 @@ void UserInterface::PopulateGameBoard() {
 /// <param name="e">The e.</param>
 System::Void UserInterface::startButton_Click(System::Object^  sender, System::EventArgs^  e) {
 
-	this->calculateTimer();
-
 	this->theBoard = gcnew GameBoard();
 	this->wordBox->Text = "";
 	this->PopulateGameBoard();
+	this->calculateTimer();
 }
 
 /// <summary>
@@ -249,23 +248,45 @@ System::Void UserInterface::CalculateScore(){
 /// </summary>
 /// <param name="string">The string.</param>
 /// <returns></returns>
-int UserInterface::calculatePointValue(String^ string){
+int UserInterface::calculatePointValue(String^ currentWord){
+
 	int score = 0;
-	if (string->Length >= 8){
-		score += 11;
+
+	if (currentWord->Length > 8){
+		score = 11;
 	}
-	if (string->Length == 7){
-		score += 5;
+	switch (currentWord->Length){
+	case 3: {
+		score = 1;
+		break;
 	}
-	if (string->Length == 6){
-		score += 3;
+	case 4:{
+		score = 1;
+		break;
 	}
-	if (string->Length == 5){
-		score += 2;
+	case 5:{
+		score = 2;
+		break;
 	}
-	if (string->Length == 3 || string->Length == 4){
-		score += 1;
+	case 6:{
+		score = 3;
+		break;
 	}
+	case 7:{
+		score = 5;
+		break;
+	}
+	case 8:{
+		score = 11;
+		break;
+	}
+	default:{
+		score = 0;
+		break;
+	}
+
+	}
+
 	return score;
 }
 
@@ -292,4 +313,15 @@ System::Void UserInterface::quitButton_Click(System::Object^  sender, System::Ev
 	this->completeGameTimer->Stop();
 	this->timerLabel->Text = "0:00";
 	this->CalculateScore();
+}
+
+/// <summary>
+/// Resets the button_ click.
+/// </summary>
+/// <param name="sender">The sender.</param>
+/// <param name="e">The e.</param>
+System::Void UserInterface::resetButton_Click(System::Object^  sender, System::EventArgs^  e){
+	this->guessedWordTextBox->Clear();
+	this->theBoard->clearSelectedDies();
+	this->PopulateGameBoard();
 }
